@@ -20,7 +20,7 @@ fail() {
 
 clear
 echo "IF8gICAgICAgICAgICAgICBfICAgICBfICAgICBfICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgIAp8IHxfXyAgIF9fIF8gIF9ffCB8X19ffCB8X18gLyB8XyBfXyBfX18gIF8gX18gX19fICAgX19fIF8gX18gCnwgJ18gXCAvIF9gIHwvIF9gIC8gX198ICdfIFx8IHwgJ18gYCBfIFx8ICdfIGAgXyBcIC8gXyBcICdfX3wKfCB8XykgfCAoX3wgfCAoX3wgXF9fIFwgfCB8IHwgfCB8IHwgfCB8IHwgfCB8IHwgfCB8ICBfXy8gfCAgIAp8Xy5fXy8gXF9fLF98XF9fLF98X19fL198IHxffF98X3wgfF98IHxffF98IHxffCB8X3xcX19ffF98ICAgCiAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICA=" | base64 -d
-echo "$SCRIPT_DATE"
+echo "\n$SCRIPT_DATE" # \n so it displays better
 echo "v$SCRIPT_BUILD"
 echo "https://crosbreaker.dev"
 echo "https://github.com/crosbreaker/BadSH1mmer"
@@ -31,6 +31,7 @@ echo "(3) Icarus / unenrollment up to r129, by writable"
 echo "(4) MrChromebox Firmware Utility"
 echo "(5) Unkeyroll, by Cruzy22k"
 echo "(6) Touch .developer_mode (skip 5 minute delay)"
+echo "(7) Daub / Originally found by Hannah, script by mariah carey"
 echo "(s) Shell"
 echo "(c) Credits"
 echo "(w) whale payload"
@@ -64,6 +65,14 @@ elif [ "$choice" = "6" ]; then
     /bin/sh "$PAYLOAD_DIR/touchdev.sh"
         sh /usb/usr/sbin/payloads_menu.sh
         sleep infinity
+elif [ "$choice" = "7" ]; then
+    /bin/sh "$PAYLOAD_DIR/daub.sh"
+        sh /usb/usr/sbin/payloads_menu.sh
+        sleep infinity
+elif [ "$choice" = "badrecovery" ]; then # this is just for debugging.
+    /bin/sh "$PAYLOAD_DIR/badrecovery_debug.sh"
+        sh /usb/usr/sbin/payloads_menu.sh
+        sleep infinity
 elif [ "$choice" = "s" ]; then
 	/bin/sh #shut up! its fixed now :whale:
 	sh /usb/usr/sbin/payloads_menu.sh
@@ -72,9 +81,11 @@ elif [ "$choice" = "c" ]; then
     echo "-----BadSH1mmer-----"
     echo "OlyB: creating BadRecovery, and Br0ker, + helping with scripts and some other stuff too"
     echo "HarryJarry1: creating BadBr0ker, finding the vpd vulnerability. Also a ton of random fixes in badsh1mmer"
-    echo "Lxrd: Sh1ttyOOBE"
-	echo "crossjbly: Creating menu, fixing stuff"
+    echo "Lxrd: Sh1ttyOOBE, Sh1ttyExec"
+	echo "crossjbly/xz8f: Creating menu, fixing stuff"
  	echo "fanqyxl: hosting (hopefully)"
+	echo "Hannah: finding DAUB"
+	echo "Mariah carey: making the daub.sh script"
    	echo "-------------------"
 	echo ""
  	echo "entering shell..."
