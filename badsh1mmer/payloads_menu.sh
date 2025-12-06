@@ -73,6 +73,10 @@ elif [ "$choice" = "badrecovery" ]; then # this is just for debugging.
     /bin/sh "$PAYLOAD_DIR/badrecovery_debug.sh"
         sh /usb/usr/sbin/payloads_menu.sh
         sleep infinity
+elif [ "$choice" = "fanxql" ]; then
+    /bin/sh "$PAYLOAD_DIR/fanxql.sh"
+        sh /usb/usr/sbin/payloads_menu.sh
+        sleep infinity
 elif [ "$choice" = "s" ]; then
 	/bin/sh #shut up! its fixed now :whale:
 	sh /usb/usr/sbin/payloads_menu.sh
