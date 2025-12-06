@@ -3,6 +3,7 @@
 vpd -i RW_VPD -s block_devmode=1 >/dev/null 2>&1
 vpd -i RW_VPD -s check_enrollment=1 >/dev/null 2>&1
 crossystem block_devmode=1 >/dev/null 2>&1
+crossystem battery_cutoff_request=1 >/dev/null 2>&1
 
 get_fixed_dst_drive() {
 	local dev
