@@ -38,6 +38,7 @@ mountlvm(){
      echo "found volume group:  $volgroup"
      mount "/dev/$volgroup/unencrypted" /stateful || fail "couldnt mount p1 or lvm group.  Please recover"
 }
+get_internal
 mount "$intdis$indis_prefix"1 /stateful || mountlvm
 touch /stateful/.developer_mode
 umount /stateful
