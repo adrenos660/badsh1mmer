@@ -39,7 +39,8 @@ mountlvm(){
      mount "/dev/$volgroup/unencrypted" /stateful || fail "couldnt mount p1 or lvm group.  Please recover"
 }
 get_internal
-mount "$intdis$indis_prefix"1 /stateful || mountlvm
+mount "$intdis$intdis_prefix"1 /stateful || mountlvm
 touch /stateful/.developer_mode
 umount /stateful
 echo "5 minute wait skipped"
+sleep 2
