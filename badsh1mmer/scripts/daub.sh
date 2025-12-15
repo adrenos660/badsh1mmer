@@ -3,9 +3,8 @@
 # get_stateful take from https://github.com/applefritter-inc/BadApple-icarus
 fail(){
 	printf "$1\n"
-	printf "exiting...\n"
+	printf "please attach error logs and report to crosbreaker on discord or github...\n"
 	sleep infinity # so people have time to photograph/record error outputs in reports
-	exit
 }
 main(){
 echo   
