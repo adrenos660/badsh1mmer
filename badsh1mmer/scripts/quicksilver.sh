@@ -6,22 +6,23 @@ fail(){
   sleep infinity # so people have time to photograph/record error outputs in reports
 }
 prep_quicksilver() {
-	mkdir -p /run/vpd /localroot
-	mount "$intdis$intdis_prefix"3 /localroot -o ro
-	for rootdir in dev proc run sys; do
-		mount --bind /${rootdir} /localroot/${rootdir}
-	done
+	mkdir -p /run/vpd # /localroot (keeping the chroot code here for posterity, even though it was board-specific and kinda buggy)
+	# mount "$intdis$intdis_prefix"3 /localroot -o ro
+	# for rootdir in dev proc run sys; do
+	# 	mount --bind /${rootdir} /localroot/${rootdir}
+	# done
 	if vpd -i RW_VPD -l | grep re_enrollment > /dev/null 2>&1; then
 		quicksilver=true
 	else
 		quicksilver=false
 	fi
+	vpd -i RW_VPD -l > /run/vpd/rw.txt
 }
 do_quicksilver() {
-	chroot /localroot /usr/sbin/vpd -i RW_VPD -s re_enrollment_key=$(chroot /localroot /usr/bin/openssl rand -hex 32) > /dev/null 2>&1
+	vpd -i RW_VPD -s re_enrollment_key=$(hexdump -e '1/1 "%02x"' -v -n 32 /dev/urandom) > /dev/null 2>&1
 }
 undo_quicksilver() {
-	chroot /localroot /usr/sbin/vpd -i RW_VPD -d re_enrollment_key > /dev/null 2>&1
+	vpd -i RW_VPD -d re_enrollment_key > /dev/null 2>&1
 }
 get_internal() {
 	local ROOTDEV_LIST=$(cgpt find -t rootfs)
