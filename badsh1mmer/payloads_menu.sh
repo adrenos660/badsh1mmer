@@ -33,6 +33,7 @@ echo "(4) MrChromebox Firmware Utility"
 echo "(5) Unkeyroll, by Cruzy22k"
 echo "(6) Touch .developer_mode (skip 5 minute delay)"
 echo "(7) Daub / Originally found by Hannah, script by mariah carey"
+echo "(8) Quicksilver"
 echo "(s) Shell"
 echo "(c) Credits"
 echo "(w) whale payload"
@@ -57,7 +58,6 @@ elif [ "$choice" = "4" ]; then
     /bin/sh "$PAYLOAD_DIR/mrchromebox.sh"
 	sh /usb/usr/sbin/payloads_menu.sh
   	sleep infinity
-
 elif [ "$choice" = "5" ]; then
     /bin/sh "$PAYLOAD_DIR/unkeyroll.sh"
         sh /usb/usr/sbin/payloads_menu.sh
@@ -76,6 +76,10 @@ elif [ "$choice" = "badrecovery" ]; then # this is just for debugging.
         sleep infinity
 elif [ "$choice" = "fanxql" ]; then
     /bin/sh "$PAYLOAD_DIR/fanxql.sh"
+        sh /usb/usr/sbin/payloads_menu.sh
+        sleep infinity
+elif [ "$choice" = "8" ]; then
+    /bin/sh "$PAYLOAD_DIR/quicksilver.sh"
         sh /usb/usr/sbin/payloads_menu.sh
         sleep infinity
 elif [ "$choice" = "s" ]; then
