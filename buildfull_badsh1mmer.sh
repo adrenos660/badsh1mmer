@@ -74,7 +74,7 @@ echo "Found recovery image from archive at $FILENAME"
 
 echo "running build_badrecovery.sh"
 sudo ./build_badrecovery.sh -i "$FILENAME" -t unverified || fail "build_badrecovery.sh exited with an error"
-echo "Cleaning up directory"
-rm badsh1mmer/scripts/root.gz
-rm badsh1mmer/scripts/kern.gz
+# echo "Cleaning up directory"
+# rm badsh1mmer/scripts/root.gz
+# rm badsh1mmer/scripts/kern.gz
 echo "File saved to $FILENAME"
