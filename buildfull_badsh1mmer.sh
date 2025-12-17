@@ -69,8 +69,8 @@ mv $FILENAME badsh1mmer-$board.bin
 FILENAME=$(find . -maxdepth 2 -name "badsh1mmer-*.bin")
 echo "Found recovery image from archive at $FILENAME"
 
-echo "running update_downloader.sh"
-bash update_downloader.sh "$board" || fail "update_downloader.sh exited with an error"
+# echo "running update_downloader.sh"
+# bash update_downloader.sh "$board" || fail "update_downloader.sh exited with an error"
 
 echo "running build_badrecovery.sh"
 sudo ./build_badrecovery.sh -i "$FILENAME" -t unverified || fail "build_badrecovery.sh exited with an error"
