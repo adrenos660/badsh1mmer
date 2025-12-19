@@ -6,11 +6,11 @@ fail(){
   sleep infinity # so people have time to photograph/record error outputs in reports
 }
 prep_quicksilver() {
-	mkdir -p /run/vpd # /localroot (keeping the chroot code here for posterity, even though it was board-specific and kinda buggy)
-	# mount "$intdis$intdis_prefix"3 /localroot -o ro
-	# for rootdir in dev proc run sys; do
-	# 	mount --bind /${rootdir} /localroot/${rootdir}
-	# done
+	mkdir -p /run/vpd  /localroot 
+	mount "$intdis$intdis_prefix"3 /localroot -o ro
+	for rootdir in dev proc run sys; do
+		mount --bind /${rootdir} /localroot/${rootdir}
+	done
 	if vpd -i RW_VPD -l | grep re_enrollment > /dev/null 2>&1; then
 		quicksilver=true
 	else
@@ -20,9 +20,13 @@ prep_quicksilver() {
 }
 do_quicksilver() {
 	vpd -i RW_VPD -s re_enrollment_key=$(hexdump -e '1/1 "%02x"' -v -n 32 /dev/urandom) > /dev/null 2>&1
+	echo "done! to finish unenrolling, go through oobe in secure mode and FWMP will be cleared."
+	sleep 3
 }
 undo_quicksilver() {
 	vpd -i RW_VPD -d re_enrollment_key > /dev/null 2>&1
+	echo "done! to re-enroll, go through oobe in secure mode."
+	sleep 3
 }
 get_internal() {
 	local ROOTDEV_LIST=$(cgpt find -t rootfs)
@@ -59,6 +63,12 @@ get_internal() {
 
 get_internal
 prep_quicksilver
+if $(expr $(cat /localroot/etc/lsb-release | grep MILESTONE | sed 's/^.*=//') > 142);
+  echo "quicksilver is patched on 143, please downgrade."
+	echo "sleeping then exiting..."
+  sleep 5
+	exit 1
+fi
 if [ $quicksilver = true ]; then
 	read -p "Quicksilver is ENABLED. Would you like to disable it? (y/n)" -n 1 -r
 	echo
