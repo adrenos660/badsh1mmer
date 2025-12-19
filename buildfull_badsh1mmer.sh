@@ -73,7 +73,7 @@ echo "Found recovery image from archive at $FILENAME"
 # bash update_downloader.sh "$board" || fail "update_downloader.sh exited with an error"
 
 echo "running build_badrecovery.sh"
-sudo ./build_badrecovery.sh -i "$FILENAME" -t unverified || fail "build_badrecovery.sh exited with an error"
+bash ./build_badrecovery.sh -i "$FILENAME" -t unverified || fail "build_badrecovery.sh exited with an error"
 # echo "Cleaning up directory"
 # rm badsh1mmer/scripts/root.gz
 # rm badsh1mmer/scripts/kern.gz
