@@ -5,12 +5,41 @@ fail(){
   printf "please attach error logs and report to crosbreaker on discord or github...\n"
   sleep infinity # so people have time to photograph/record error outputs in reports
 }
+
+get_booted_kernnum() {
+    if $(expr $(cgpt show -n "$intdis" -i 2 -P) > $(cgpt show -n "$intdis" -i 4 -P)); then
+        echo -n 2
+    else 
+        echo -n 4
+    fi
+}
+get_booted_rootnum() {
+  expr $(get_booted_kernnum) + 1 
+} 
+opposite_num() {
+    if [ "$1" == "2" ]; then
+        echo -n 4 
+    elif [ "$1" == "4" ]; then
+        echo -n 2
+    elif [ "$1" == "3" ]; then
+        echo -n 5
+    elif [ "$1" == "5" ]; then
+        echo -n 3
+    else
+        return 1
+    fi
+}
+
 prep_quicksilver() {
-	mkdir -p /run/vpd  /localroot 
-	mount "$intdis$intdis_prefix"3 /localroot -o ro
-	for rootdir in dev proc run sys; do
-		mount --bind /${rootdir} /localroot/${rootdir}
-	done
+	mkdir -p /run/vpd  /localrootA /localrootB
+	mount "$intdis$intdis_prefix"3 /localrootA -o ro
+	mount "$intdis$intdis_prefix"5 /localrootB -o ro
+	if $(expr $(cat /localrootA/etc/lsb-release | grep MILESTONE | sed 's/^.*=//') > 142) && $(expr $(cat /localrootB/etc/lsb-release | grep MILESTONE | sed 's/^.*=//') > 142);
+  	echo "quicksilver is patched on 143, please downgrade."
+  	echo "sleeping then exiting..."
+  	sleep 5
+  	exit 1
+	fi
 	if vpd -i RW_VPD -l | grep re_enrollment > /dev/null 2>&1; then
 		quicksilver=true
 	else
@@ -63,7 +92,7 @@ get_internal() {
 
 get_internal
 prep_quicksilver
-if $(expr $(cat /localroot/etc/lsb-release | grep MILESTONE | sed 's/^.*=//') > 142);
+if $(expr $(cat /localrootA/etc/lsb-release | grep MILESTONE | sed 's/^.*=//') > 142) && $(expr $(cat /localrootB/etc/lsb-release | grep MILESTONE | sed 's/^.*=//') > 142);
   echo "quicksilver is patched on 143, please downgrade."
 	echo "sleeping then exiting..."
   sleep 5
