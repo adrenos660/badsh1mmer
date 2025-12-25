@@ -30,10 +30,9 @@ echo "(1) Br0ker / unenrollment up to kernver 5, By OlyB. Ported to BadRecovery 
 echo "(2) Caliginosity / Revert all changes made by sh1mmer or badsh1mmer (reenroll + more)"
 echo "(3) Icarus / unenrollment up to r129, by writable"
 echo "(4) MrChromebox Firmware Utility"
-echo "(5) Unkeyroll, by Cruzy22k"
-echo "(6) Touch .developer_mode (skip 5 minute delay)"
-echo "(7) Daub / Originally found by Hannah, script by mariah carey"
-echo "(8) Quicksilver / Unenrollment up to kernver 6, By emerwyi. Script by mariah carey"
+echo "(5) Touch .developer_mode (skip 5 minute delay)"
+echo "(6) Daub / Originally found by Hannah, script by mariah carey"
+echo "(7) Quicksilver / Unenrollment up to kernver 6, By emerwyi. Script by mariah carey"
 echo "(s) Shell"
 echo "(c) Credits"
 echo "(w) whale payload"
@@ -59,14 +58,10 @@ elif [ "$choice" = "4" ]; then
 	sh /usb/usr/sbin/payloads_menu.sh
   	sleep infinity
 elif [ "$choice" = "5" ]; then
-    /bin/sh "$PAYLOAD_DIR/unkeyroll.sh"
-        sh /usb/usr/sbin/payloads_menu.sh
-        sleep infinity
-elif [ "$choice" = "6" ]; then
     /bin/sh "$PAYLOAD_DIR/touchdev.sh"
         sh /usb/usr/sbin/payloads_menu.sh
         sleep infinity
-elif [ "$choice" = "7" ]; then
+elif [ "$choice" = "6" ]; then
     /bin/sh "$PAYLOAD_DIR/daub.sh"
         sh /usb/usr/sbin/payloads_menu.sh
         sleep infinity
@@ -74,7 +69,7 @@ elif [ "$choice" = "badrecovery" ]; then # this is just for debugging.
     /bin/sh "$PAYLOAD_DIR/badrecovery_debug.sh"
         sh /usb/usr/sbin/payloads_menu.sh
         sleep infinity
-elif [ "$choice" = "8" ]; then
+elif [ "$choice" = "7" ]; then
     /bin/sh "$PAYLOAD_DIR/quicksilver.sh"
         sh /usb/usr/sbin/payloads_menu.sh
         sleep infinity
