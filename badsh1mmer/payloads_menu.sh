@@ -87,7 +87,8 @@ elif [ "$choice" = "c" ]; then
 	echo "Hannah: finding DAUB"
 	echo "Mariah carey: making the daub.sh script"
 	echo "emerwyi: quicksilver"
-	echo "fanxql: being tuff, fanxql injection"
+	# codenerd you're not fun :rage: bring back fanxql injection!!!
+	# echo "fanxql: being tuff, fanxql injection"
    	echo "-------------------"
 	echo ""
  	echo "entering shell..."
