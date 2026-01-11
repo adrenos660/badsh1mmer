@@ -10,7 +10,7 @@ jobs:
     
     strategy: 
       matrix:
-        board: [nissa, dedede, corsola, asurada, atlas, cherry, drallion, geralt, nocturne, rammus, rex, sarien, skyrim, staryu, trogdor]
+        board: [octopus]
 
     runs-on: ubuntu-latest
     steps:
