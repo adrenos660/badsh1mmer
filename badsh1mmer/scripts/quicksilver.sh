@@ -61,7 +61,7 @@ prep_quicksilver() {
 	vpd -i RW_VPD -l > /run/vpd/rw.txt
 }
 do_quicksilver() {
-	vpd -i RW_VPD -s re_enrollment_key=$(hexdump -e '1/1 "%02x"' -v -n 32 /dev/urandom) > /dev/null 2>&1
+	vpd -i RW_VPD -s "re_enrollment_key"="$(hexdump -e '1/1 "%02x"' -v -n 32 /dev/urandom)" > /dev/null 2>&1
 	echo "done! to finish unenrolling, go through oobe in secure mode and FWMP will be cleared."
 	sleep 3
 }
