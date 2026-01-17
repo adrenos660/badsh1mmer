@@ -36,8 +36,8 @@ prep_quicksilver() {
 	mount "$intdis$intdis_prefix"5 /localrootB -o ro
 	
 	for root in A B; do
-		if $(expr $(cat /localroot"$root"/etc/lsb-release | grep MILESTONE | sed 's/^.*=//') > 142 ); then
-			root_"$root"_patched=true
+		if [ "$(sed -n 's/^MILESTONE=//p' /localroot"$root"/etc/lsb-release)" -gt 142 ]; then
+    	root_"$root"_patched=true
 		fi
 	done
 	if $root_A_patched && $root_B_patched; then
@@ -61,7 +61,7 @@ prep_quicksilver() {
 	vpd -i RW_VPD -l > /run/vpd/rw.txt
 }
 do_quicksilver() {
-	vpd -i RW_VPD -s re_enrollment_key=$(hexdump -e '1/1 "%02x"' -v -n 32 /dev/urandom) > /dev/null 2>&1
+	vpd -i RW_VPD -s "re_enrollment_key"="$(hexdump -e '1/1 "%02x"' -v -n 32 /dev/urandom)" > /dev/null 2>&1
 	echo "done! to finish unenrolling, go through oobe in secure mode and FWMP will be cleared."
 	sleep 3
 }
