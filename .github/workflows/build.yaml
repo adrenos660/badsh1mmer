@@ -9,7 +9,7 @@ jobs:
     
     strategy: 
       matrix:
-        board: [asuka, banjo, bob, brox, buddy, butterfly, candy, caroline, cave, celes, chell, daisy, endeavour, eve, excelsior, expresso, falco, gale, gandof, gnawty, heli, kevin, kip, lars, leon, link, lumpy, mccloud, monroe, nautilus, ninja, nirva,  panther, parrot, peppy, quawks, rauru, reven, samus, scarlet, setzer, soraka, squawks, stumpy, sumo, swanky, terra, tricky]
+        board: [asuka, banjo, bob, brox, buddy, butterfly, candy, caroline, celes, chell, daisy, endeavour, eve, excelsior, expresso, falco, gale, gandof, gnawty, heli, kevin, kip, lars, leon, link, lumpy, mccloud, monroe, nautilus, ninja, nirva,  panther, parrot, peppy, quawks, rauru, reven, samus, scarlet, setzer, soraka, squawks, stumpy, sumo, swanky, terra, tricky]
 
     runs-on: ubuntu-latest
     steps:
