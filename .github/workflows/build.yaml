@@ -9,7 +9,7 @@ jobs:
     
     strategy: 
       matrix:
-        board: [arkham, asuka, auron-paine, auron-yuna, banjo, bob, brox, buddy, buddy-cfm, butterfly, candy, caroline, cave, celes, chell, constitution, daisy, daisy-skate, daisy-spring, endeavour, eve, excelsior, expresso, falco, falco-li, gale, gandof, gnawty, guado, guado-cfm, guybrush, heli, kevin, kip, lars, leon, link, lumpy, mccloud, monroe, nautilus, ninja, nirva, nyan-big, nyan-blaze, nyan-kitty, ovis, panther, parrot, parrot-ivb, peach-pi, peach-pit, peppy, quawks, rauru, reven, rikku, rikku-cfm, samus, scarlet, setzer, soraka, squawks, stumpy, sumo, swanky, terra, tricky, veyron-fievel, veyron-jaq, veyron-jerry, veyron-mickey, veyron-mighty, veyron-minnie, veyron-speedy, veyron-tiger, whirlwind, winky, wizpig, wolf, x86-alex, x86-alex-he, x86-mario, x86-zgb, x86-zgb-he]
+        board: [arkham, asuka, auron-paine, auron-yuna, banjo, bob, brox, buddy, butterfly, candy, caroline, cave, celes, chell, constitution, daisy, daisy-skate, daisy-spring, endeavour, eve, excelsior, expresso, falco, falco-li, gale, gandof, gnawty, guado, guado-cfm, guybrush, heli, kevin, kip, lars, leon, link, lumpy, mccloud, monroe, nautilus, ninja, nirva, nyan-big, nyan-blaze, nyan-kitty, ovis, panther, parrot, parrot-ivb, peach-pi, peach-pit, peppy, quawks, rauru, reven, rikku, rikku-cfm, samus, scarlet, setzer, soraka, squawks, stumpy, sumo, swanky, terra, tricky, veyron-fievel, veyron-jaq, veyron-jerry, veyron-mickey, veyron-mighty, veyron-minnie, veyron-speedy, veyron-tiger]
 
     runs-on: ubuntu-latest
     steps:
