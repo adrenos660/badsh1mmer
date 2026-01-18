@@ -9,7 +9,7 @@ jobs:
     
     strategy: 
       matrix:
-        board: [arkham, asuka, auron-paine, auron-yuna, banjo, bob, brox, buddy, butterfly, candy, caroline, cave, celes, chell, constitution, daisy, daisy-skate, daisy-spring, endeavour, eve, excelsior, expresso, falco, falco-li, gale, gandof, gnawty, guado, guado-cfm, guybrush, heli, kevin, kip, lars, leon, link, lumpy, mccloud, monroe, nautilus, ninja, nirva, nyan-big, nyan-blaze, nyan-kitty, panther, parrot, peach-pi, peach-pit, peppy, quawks, rauru, reven, rikku, rikku-cfm, samus, scarlet, setzer, soraka, squawks, stumpy, sumo, swanky, terra, tricky, veyron]
+        board: [arkham, asuka, auron-paine, auron-yuna, banjo, bob, brox, buddy, butterfly, candy, caroline, cave, celes, chell, constitution, daisy, endeavour, eve, excelsior, expresso, falco, gale, gandof, gnawty, guado, guybrush, heli, kevin, kip, lars, leon, link, lumpy, mccloud, monroe, nautilus, ninja, nirva, nyan-big, nyan-blaze, nyan-kitty, panther, parrot, peach-pi, peach-pit, peppy, quawks, rauru, reven, rikku, samus, scarlet, setzer, soraka, squawks, stumpy, sumo, swanky, terra, tricky, veyron]
 
     runs-on: ubuntu-latest
     steps:
