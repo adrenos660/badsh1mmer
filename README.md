@@ -6,9 +6,13 @@ If you need any kind of support, please join our [discord server](https://discor
 ### If you would like github actions to do everything for you:
 this does not require a terminal at all
 1 signin/login
+
 3 fork this repository
+
 4 click on the button named actions thats located in the horizontal top bar 
+
 5 click on the button named build under all workflows 
+
 6 click on run workflow and choose a branch 
 wait 
 
